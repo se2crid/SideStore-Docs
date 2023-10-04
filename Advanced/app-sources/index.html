@@ -1,0 +1,1081 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.sidestore.io/Advanced/app-sources/">
+      
+      
+        <link rel="prev" href="../anisette-server/">
+      
+      
+        <link rel="next" href="../url-schemes/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
+    
+    
+      
+        <title>App Sources - SideStore Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.79e020e9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#app-sources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SideStore Docs" class="md-header__button md-logo" aria-label="SideStore Docs" data-md-component="logo">
+      
+  <img src="../../../../img/icons/favicon-32x32.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SideStore Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              App Sources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SideStore Docs" class="md-nav__button md-logo" aria-label="SideStore Docs" data-md-component="logo">
+      
+  <img src="../../../../img/icons/favicon-32x32.png" alt="logo">
+
+    </a>
+    SideStore Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/burner-apple-id/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Burner Apple ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anisette-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Anisette Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    App Sources
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    App Sources
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-json-file" class="md-nav__link">
+    Creating the JSON file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing-apps" class="md-nav__link">
+    Releasing apps
+  </a>
+  
+    <nav class="md-nav" aria-label="Releasing apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versions" class="md-nav__link">
+    versions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-apps" class="md-nav__link">
+    Updating apps
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deprecated-versions-api" class="md-nav__link">
+    Deprecated versions API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-out-news" class="md-nav__link">
+    Sending out news
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features-on-the-horizon" class="md-nav__link">
+    New features on the horizon
+  </a>
+  
+    <nav class="md-nav" aria-label="New features on the horizon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patreon-support" class="md-nav__link">
+    Patreon support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-device-screenshot-support" class="md-nav__link">
+    Multi-device screenshot support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-categorization" class="md-nav__link">
+    App categorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-app-age-rating-content-warnings" class="md-nav__link">
+    Per App Age Rating / Content Warnings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thats-all-there-is" class="md-nav__link">
+    That's all there is!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url-schemes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URL Schemes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-json-file" class="md-nav__link">
+    Creating the JSON file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing-apps" class="md-nav__link">
+    Releasing apps
+  </a>
+  
+    <nav class="md-nav" aria-label="Releasing apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versions" class="md-nav__link">
+    versions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-apps" class="md-nav__link">
+    Updating apps
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deprecated-versions-api" class="md-nav__link">
+    Deprecated versions API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-out-news" class="md-nav__link">
+    Sending out news
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features-on-the-horizon" class="md-nav__link">
+    New features on the horizon
+  </a>
+  
+    <nav class="md-nav" aria-label="New features on the horizon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patreon-support" class="md-nav__link">
+    Patreon support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-device-screenshot-support" class="md-nav__link">
+    Multi-device screenshot support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-categorization" class="md-nav__link">
+    App categorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-app-age-rating-content-warnings" class="md-nav__link">
+    Per App Age Rating / Content Warnings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thats-all-there-is" class="md-nav__link">
+    That's all there is!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="app-sources">App Sources</h1>
+<p>This document provides all the details that describe how to make your own AltSource. There are five important sections to read:</p>
+<ul>
+<li>Creating the JSON</li>
+<li>Releasing apps</li>
+<li>Updating apps</li>
+<li>Sending out news</li>
+<li>New features coming soon</li>
+</ul>
+<p>So lets dive right in.</p>
+<h2 id="creating-the-json-file">Creating the JSON file</h2>
+<p>If you have never directly handled a JSON file, it stands for "JavaScript Object Notation" and you can learn more about if from the <a href="https://www.json.org/">official website</a> and <a href="https://jsonapi.org/">documentation.</a></p>
+<p>There are three basic properties that belong in the primary object, everything is required unless otherwise stated.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Source&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.myname.mysource&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sourceURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://mysource.com/apps.json&quot;</span><span class="p">,</span>
+</code></pre></div>
+<p><strong>name</strong></p>
+<p>This can be any valid string and can always be changed later if necessary.</p>
+<p><strong>identifier</strong></p>
+<p>This is a bundle identifier AltStore uses to keep your Source separate from every other source. For this reason, it is recommended to follow Apple's standard for an identifier (it is demonstrated above).</p>
+<p>It's important to note here that changing this identifier down the road will have <strong>consequences.</strong> Users with the Source already installed will suddenly have conflicting identifiers with the online Source and will cause an error in AltStore that will require them to <strong>completely remove</strong> the Source before they can add it back.</p>
+<p><strong>sourceURL</strong> <em>(optional)</em></p>
+<p>If your user adds your Source using a URL shortener or you have the link to file stored on CDN, it is recommended that you include this property. This allows AltStore to save the exact link to the file which speeds up retrieval time.</p>
+<h2 id="releasing-apps">Releasing apps</h2>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;apps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My App&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bundleIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.myname.myapp&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;developerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Name&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The newest and greatest app around.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;versions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-21&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;localizedDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bug fixes.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;downloadURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com/myapp-1.1.ipa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">87129</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-03-30&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;localizedDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First AltStore release!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;downloadURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com/myapp-1.0.ipa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">79821</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;localizedDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Features include:\n\n• Cool graphics\n• Top notch performance\n• Satisfying interactions&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;iconURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com/assets/icon.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tintColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8A28F7&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;photos&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;usageDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allows you to use your photo library to set your profile image.&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;screenshotURLs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;https://myapp.com/assets/screen0.png&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;beta&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div>
+<p><a class="glightbox" href="../../img/delta-app-listing.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Delta App Listing" src="../../img/delta-app-listing.png" /></a></p>
+<p><strong>name</strong></p>
+<p>Rather self-explanatory, this is the name of your app as it should appear in the AltStore.</p>
+<p><strong>bundleIdentifier</strong></p>
+<p>AltStore uses this to separate apps as individual listings.</p>
+<p>This <strong>must</strong> be the same as your application's <code>"CFBundleIdentifier"</code> (located in <code>info.plist</code>) in order for AltStore to be able to open the app after installation. Technically, it can be any unique string, but for all AltStore functionality to work, it should be the same as the application.</p>
+<p><strong>developerName</strong></p>
+<p>Also self-explanatory, this is just the name of the developer/developers that will appear in the AltStore app listing.</p>
+<p><strong>subtitle</strong> <em>(optional)</em></p>
+<p>This should be a very short description of your app that will appear in the browse tab of AltStore. It should give a quick one sentence explanation of your app and why a user wants it. The most effective subtitles tend to around 6-10 words long.</p>
+<p><strong>localizedDescription</strong></p>
+<p>This is where you can include every feature and detail about your app. The user will see the first 5 lines of text then they can click "More" to expand to the full section. So you should think of the first couple sentences as a quick pitch for your app.</p>
+<p><strong>iconURL</strong></p>
+<p>This should point directly to wherever you host the icon for your app. Note that this doesn't have to be the same as the icon used for the actual application, but it is recommended to maintain consistency.</p>
+<p><strong>tintColor</strong> <em>(optional)</em></p>
+<p>This might take some experimentation, but the best tint color is usually choosing one of the darker colors represented in your app icon. The tint color will be used in two places:</p>
+<ul>
+<li>For the install button</li>
+<li>As a background color for the larger app listing bubble (but this will be a lighter shade)</li>
+</ul>
+<p>The tint color must be in the 6 character Hex format, with the '#' before the 6 characters as optional.</p>
+<p><strong>size</strong></p>
+<p>This is an integer value that should be set equivalent to the size of your IPA in bytes. This gives the user an idea of how large the application is before they install.</p>
+<p><strong>permissions</strong> <em>(optional)</em></p>
+<p>This is to show the user what various permissions your app requires. Create an entry for each separate permission your app requires. The accepted permission <code>types</code> are the following:</p>
+<ul>
+<li>photos</li>
+<li>camera</li>
+<li>location</li>
+<li>contacts</li>
+<li>reminders</li>
+<li>music</li>
+<li>microphone</li>
+<li>speech-recognition</li>
+<li>background-audio</li>
+<li>background-fetch</li>
+<li>bluetooth</li>
+<li>network</li>
+<li>calendars</li>
+<li>faceid</li>
+<li>siri</li>
+<li>motion</li>
+</ul>
+<p>Your <code>usageDescription</code> should explain what the permission is and why your app needs it.</p>
+<p>It is <em>highly</em> recommended to include these permissions if your app uses them as this disclosure provides additional trust with the user.</p>
+<p><strong>screenshotURLs</strong> <em>(optional)</em></p>
+<p>These should point directly to any number of screenshots/images that display your app's functionality. The first two will be displayed under the app listing in the browse tab, and the rest will be visible on the app's page.</p>
+<p><strong>beta</strong> <em>(optional)</em></p>
+<p>Here you can specify whether apps should be classified as a beta application and receive a special beta tag on its app listing.</p>
+<p>Currently, this is also tied in with the Patreon app locking system used with AltStore/Delta betas. But it is not recommended to attempt to use it for this purpose since it will ultimately be changing in the future.</p>
+<h3 id="versions"><strong>versions</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-03-30&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;localizedDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First AltStore release!&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;downloadURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com/myapp-1.0.ipa&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">79821</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;minOSVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;maxOSVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14.3&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A list containing the version(s) of your application. <em>New with AltSource v2.0 API.</em></p>
+<p>Important note: AltStore will display the first version (with compatible min/max iOS versions) in the list as the "latest" release, regardless of version or date. So keep in mind that the order that versions appear <strong>must</strong> be in reverse chronological order.</p>
+<p><strong>version</strong></p>
+<p>This <strong>must</strong> match your application's <code>"CFBundleShortVersionString"</code> (located in <code>info.plist</code>) in order for AltStore updates to work properly. More on this later in the <strong>Updating apps</strong> section.</p>
+<p><strong>versionDate</strong></p>
+<p>This should be the date that you are releasing your application, and should be written in the format <code>YYYY-MM-DD</code> (other formats standard formats will work as well, but this is the only info required and shown to the user).</p>
+<p>If you are planning on releasing your application in the future, after everyone has installed your Source, there is an additional format available: <code>YYYY-MM-DDTHH:MM:SS</code></p>
+<p>Using this format will create an automatic timer countdown to the release time specified. Please note that the time is automatically assumed to be UTC and uses a 24 hour clock.</p>
+<p>If you would rather use the time in your timezone, add <code>-08:00</code> to the end of the <code>versionDate</code>, where that -08 corresponds to the number of hours difference between UTC and your timezone. It is also important to note that UTC does not change with daylight saving time, so be careful if you are releasing around that time of year as it can be easy to miscalculate.</p>
+<p><strong>localizedDescription</strong> <em>(optional)</em></p>
+<p>Use this to tell the user what new features you introduced or what bugs you squashed with the latest version.</p>
+<p><strong>downloadURL</strong></p>
+<p>This should point directly to wherever your IPA is hosted.</p>
+<p>If you are planning on releasing your app in the future, this property is still required but it doesn't have to actually point to a valid file.</p>
+<p><strong>minOSVersion</strong> and <strong>maxOSVersion</strong> <em>(optional)</em></p>
+<p>These are used to indicate the iOS version restrictions that your app may have (<strong>inclusively</strong>). It also allows you to support multiple different versions of your app that can support different iOS version ranges.</p>
+<h2 id="updating-apps">Updating apps</h2>
+<p>AltStore will automatically notify users about updates to your app and will prompt them to install the update. This occurs specifically when the version number listed in the Source is higher than the currently installed version number.</p>
+<p>The AltStore team recommends that you simply create another object in the <code>versions</code> list with the following properties changed to reflect the updated app:</p>
+<ul>
+<li>version</li>
+<li>date</li>
+<li>localizedDescription <em>(optional)</em></li>
+<li>downloadURL</li>
+<li>size</li>
+</ul>
+<p>And of course you can change any other property outside of the <code>versions</code> list if you would like to update the way your app appears in AltStore.</p>
+<h3 id="deprecated-versions-api">Deprecated versions API</h3>
+<p>The following properties are still usable with the v1.0 API as properties of an app object, but are deprecated and subject to discontinuation as soon as March 2023.</p>
+<ul>
+<li>version</li>
+<li>versionDate</li>
+<li>versionDescription</li>
+<li>downloadURL</li>
+<li>size</li>
+</ul>
+<p>If there is not a <code>versions</code> list in the AltSource app, these properties will be required instead and used by AltStore to display the release information.</p>
+<h2 id="sending-out-news">Sending out news</h2>
+<p>Please note that the "news" array is not required to be a valid AltSource.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;news&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My App Now Available!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-app-available-download&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The app to beat all apps.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-21&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tintColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8A28F7&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;imageURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com/assets/news.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myapp.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;appID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.myname.myapp&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;notify&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" href="../../img/delta-news.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Delta News Item" src="../../img/delta-news.png" /></a></p>
+<p><strong>title</strong></p>
+<p>Fairly straightforward, this will be the headline for your news item.</p>
+<p><strong>identifier</strong></p>
+<p>This <strong>must</strong> be a unique identifier that should not be used by any other news items in AltStore.</p>
+<p><strong>caption</strong></p>
+<p>Similar to the caption for your app listing, this should be about a sentence. While there is technically no limit to the caption size, no one wants a giant text blob in their news feed. If there is more to your news than a couple sentences can deliver, try using an image or link to a website.</p>
+<p><strong>date</strong></p>
+<p>This date should follow the same format as the <code>versionDate</code> for app listings: <code>YYYY-MM-DD</code>.</p>
+<p>Please note that the date does not currently display on any news items and neither does the time (if provided). Instead, it is required for AltStore to organize the news into chronological order.</p>
+<p><strong>tintColor</strong> <em>(optional)</em></p>
+<p>This has the same function as the <code>tintColor</code> for app listings. The only difference is that now it will be used as the background color for your news item. Keep in mind that it does not apply to the app listing if you supplied an <code>appID</code>. The app listing that appears below the news article will use the <code>tintColor</code> specific to that app.</p>
+<p><strong>imageURL</strong> <em>(optional)</em></p>
+<p>This should be a direct link to any image you want to feature on your news item. The recommended size for this image is 960x540 or any image with a 16:9 aspect ratio. AltStore will also take whatever image you provide it with, then crop and center it to the correct aspect ratio. Be careful not to put any important information in the corners since the AltStore rounds the images corners by default.</p>
+<p><strong>url</strong> <em>(optional)</em></p>
+<p>This should be used to link users to a website when they click the news item. The link will open in AltStore's built-in web browser (based off safari).</p>
+<p><strong>appID</strong> <em>(optional)</em></p>
+<p>This <strong>must</strong> be an exact match to the <code>bundleIdentifier</code> of the app listing in order for it to work properly.</p>
+<p>This is required if you want an app listing to appear below the news item for quick installation.</p>
+<p>It also makes it so that when a user click on the news item, it will take them to the specified app's page. This will be overridden if a <code>url</code> is also specified.</p>
+<p><strong>notify</strong> <em>(optional)</em></p>
+<p>When set to true, AltStore will send all users of the Source a notification with the <code>title</code> of the news item.</p>
+<p>Note that the notification will not be instantaneous: it will occur whenever AltStore attempts a background refresh (the same time that update notifications occur) and it does require users to leave AltStore running in the background.</p>
+<h2 id="new-features-on-the-horizon">New features on the horizon</h2>
+<p>Not entirely sure what these will look like and they are not set in stone yet. But these should give you any idea of what future features AltSources might have.</p>
+<h3 id="patreon-support">Patreon support</h3>
+<p>Included at the root of the AltSource:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;userInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;patreonAccessToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;afjbsafasfvsjdgfjhkouohjkledjyrqwfgse&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Included within any app that is to be Patreon locked:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example App&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;patreon&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>This will allow you to set certain apps to only be available to your Patrons. Other similar capabilities to this will available to specify in the <code>userInfo</code> section in future.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is currently implemented in AltStore so that if a patreonAccessToken is provided, any apps with the <code>"beta": true</code> property will be hidden from users and no longer update/refresh unless the linked Patreon account in AltStore settings is subscribed to the account the token is associated with.</p>
+</div>
+<h3 id="multi-device-screenshot-support">Multi-device screenshot support</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;screenshotURLs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;iphone-standard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;https://myapp.com/assets/screen0-standard.png&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;iphone-edgeToEdge&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;https://myapp.com/assets/screen0-edgetoedge.png&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;ipad&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;https://myapp.com/assets/screen0-ipad.png&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">},</span>
+</code></pre></div>
+<p>This will allow you to specify the size of the images you are adding so that AltStore will display the correct screenshot sizes for the appropriate device. This will likely become the new standard as AltStore continues to expand to more devices and fully supports the iPad layout.</p>
+<h3 id="app-categorization">App categorization</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;primaryCategory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;games&quot;</span><span class="p">,</span>
+<span class="nt">&quot;secondaryCategory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lifestyle&quot;</span><span class="p">,</span>
+<span class="nt">&quot;primarySubcategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;action&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;platformer&quot;</span>
+<span class="p">],</span>
+<span class="nt">&quot;secondarySubcategories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</code></pre></div>
+<p>The primaryCategory and primarySubcategories will allow you to specify which category fits your app best and what other subcategories are appropriate as well (the same applies to the secondaryCategory). The full list of categories that Apple uses for its App Store can be <a href="https://docs.fastlane.tools/actions/deliver/#reference">found here.</a> Ultimately, the goal is to allow users to filter apps by what categories interest them.</p>
+<h3 id="per-app-age-rating-content-warnings">Per App Age Rating / Content Warnings</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;age_rating&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seventeenPlus&quot;</span><span class="p">,</span>
+<span class="nt">&quot;contentWarnings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;violenceCartoonOrFantasy&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;sexualContentOrNudity&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;substanceUse&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>These can be useful for safe-guarding certain apps from users under the suggested age rating by filtering these apps according to the settings contained within AltStore.</p>
+<h2 id="thats-all-there-is">That's all there is!</h2>
+<p>If you want to see the full JSON example file that was used throughout this tutorial, <a href="../../references/source-template.json">here it is</a>.</p>
+<p>Here are some good existing AltSources: The <a href="https://apps.altstore.io">primary AltStore Source</a>, the <a href="https://github.com/SideStore/Community-Source">SideStore community source</a>, any of the Sources at <a href="https://quarksources.github.io">Quark Sources</a>, or the <a href="https://altstore.oatmealdome.me/">DolphiniOS Source</a>.</p>
+<p>I would highly recommend using this <a href="https://altsource.by.lao.sb/browse/">AltSource Browser</a> to get a visual display of your Source outside of AltStore.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sidestore" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/sidestore-949183273383395328" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/sidestore_io" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6eac0284.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
